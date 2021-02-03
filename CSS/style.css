@@ -1,21 +1,55 @@
-body{
-    height: 100%;
-    width: 100%;
+body {
+background-color:rgb(124, 108, 119);
 }
-#divsContainer{
-    --numberCells: 16;
+.wrapper{
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+
+}
+.header{
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+.mainContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.controls{
+    width: 20vw;
+    padding: 30px;
+    background-color: rgb(170, 166, 148);
+    border-radius: 3%;
+}
+.cellsContainer{
+    background-color: rgb(170, 166, 148);
     height: 60vh;
     width: 60vh;
-    border: 2px solid black;
+    padding: 30px;
+    border-radius: 3%;
+}
+#cellsContainer{
+    --numberCells: 16;
     display: grid;
     grid-template-columns: repeat(var(--numberCells), 1fr);
-    gap: 1px;
+
 }
-.cell{
-    background-color: chocolate;
-    border: 1px solid black;
-    transition: all 0.8s ease;
+.emptyCellWhite{
+    background-color: white;
+    outline: none;
+    transition: all 0.2s ease;
 }
-.change{
+.emptyCellBlack{
     background-color: black;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.colorCellWhite{
+    background-color: white;
+}
+.colorCellBlack{
+    background-color:black;
 }
