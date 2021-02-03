@@ -9,6 +9,7 @@ background-color:rgb(124, 108, 119);
 
 }
 .header{
+    font-family: "Lucida Console", "Courier New", monospace;
     font-size: 60px;
     text-align: center;
     color: white;
@@ -19,6 +20,9 @@ background-color:rgb(124, 108, 119);
     justify-content: space-evenly;
 }
 .controls{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     width: 20vw;
     padding: 30px;
     background-color: rgb(170, 166, 148);
@@ -36,6 +40,12 @@ background-color:rgb(124, 108, 119);
     display: grid;
     grid-template-columns: repeat(var(--numberCells), 1fr);
 
+}
+.button{
+    background-color: rgb(170, 166, 163);
+    border-radius: 10%;
+    padding: 5px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 .emptyCellWhite{
     background-color: white;
