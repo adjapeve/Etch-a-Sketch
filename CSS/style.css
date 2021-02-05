@@ -59,3 +59,14 @@ font-family: "Lucida Console", "Courier New", monospace;
 .emptyCell{
     background-color: var(--emptyCellColor);
 }
+.slider{
+    -webkit-appearance: none;  /* Override default CSS styles */ 
+    background-color: white;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    width: 25px; 
+    height: 25px; 
+    background:rgb(124, 108, 119);
+    cursor: pointer;
+  }
