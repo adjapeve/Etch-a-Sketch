@@ -1,3 +1,4 @@
+let numCells = 256;
 let colorMode = "normal";
 let emptyCellColor = "white";
 let cellColor = "black";
@@ -5,13 +6,13 @@ let root = document.documentElement;
 root.style.setProperty('--emptyCellColor', emptyCellColor);
 root.style.setProperty('--cellColor', cellColor);
 
-drawCanvas();
+drawCanvas(numCells);
 
 const wrapper = document.getElementById('cellsContainer');
 wrapper.addEventListener('mouseover', colourCell);
 
-const slider = document.getElementById("gridSizeSlider");
-slider.addEventListener('change', clearCanvas);
+const slider=document.getElementById("gridSizeSlider");
+slider.addEventListener('drag',function(e) {console.log("done");});
 
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearCanvas);
@@ -27,6 +28,7 @@ normalModeButton.addEventListener('click', setGridBackground);
 
 function setGridBackground(e) {
     let selectedColorMode = e.target.id;
+    let emptyCells = "";
     let coloredCells = "";
     switch (selectedColorMode) {
         case 'darkModeButton':
@@ -70,13 +72,10 @@ function setGridBackground(e) {
     }
 }
 
-function drawCanvas() {
-    let slider = document.getElementById('gridSizeSlider');
-    let cellsContainer = document.getElementById('cellsContainer');
-    root.style.setProperty('--numberCells', slider.value);
-    let labelSliderdocument=document.querySelector('p');
-    labelSliderdocument.textContent=`Grid Size : ${slider.value} x ${slider.value}`;
-    for (let i = 0; i < Math.pow(slider.value, 2); i++) {
+function drawCanvas(num) {
+    const cellsContainer = document.querySelector('#cellsContainer');
+    cellsContainer.style.setProperty('--numberCells', Math.sqrt(num));
+    for (let i = 0; i < num; i++) {
         let cellDiv = document.createElement('div');
         cellDiv.classList.add("emptyCell");
         cellsContainer.appendChild(cellDiv);
@@ -104,11 +103,19 @@ function colourCell(e) {
 }
 
 function clearCanvas() {
-
-    while (wrapper.firstChild) {
-        wrapper.removeChild(wrapper.lastChild);
+    colorMode = 'normal'
+    numCells = prompt('Grid Size Min 1 - Max 100', 16);
+    if (numCells > 0 && numCells <= 100) {
+        numCells *= numCells;
+        while (wrapper.firstChild) {
+            wrapper.removeChild(wrapper.lastChild);
+        }
+        drawCanvas(numCells)
     }
-    drawCanvas()
+    else {
+        alert("Number of cells is out of range");
+        clearCanvas();
+    }
 }
 
 function getRandomnumber(maxnumber) {

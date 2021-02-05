@@ -1,11 +1,5 @@
-:root {
-    --emptyCellColor: "";
-    --cellColor:"";
-    --numberCells: "";
-  }
 body {
 background-color:rgb(124, 108, 119);
-font-family: "Lucida Console", "Courier New", monospace;
 }
 .wrapper{
     max-width: 80vw;
@@ -15,6 +9,7 @@ font-family: "Lucida Console", "Courier New", monospace;
 
 }
 .header{
+    font-family: "Lucida Console", "Courier New", monospace;
     font-size: 60px;
     text-align: center;
     color: white;
@@ -25,12 +20,11 @@ font-family: "Lucida Console", "Courier New", monospace;
     justify-content: space-evenly;
 }
 .controls{
-    font-size: 15px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     width: 20vw;
-    padding: 20px;
+    padding: 30px;
     background-color: rgb(170, 166, 148);
     border-radius: 3%;
 }
@@ -42,20 +36,33 @@ font-family: "Lucida Console", "Courier New", monospace;
     border-radius: 3%;
 }
 #cellsContainer{
+    --numberCells: 16;
     display: grid;
     grid-template-columns: repeat(var(--numberCells), 1fr);
 
 }
 .button{
-    font-size: 15px;
     background-color: rgb(170, 166, 163);
     border-radius: 10%;
     padding: 5px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
+.emptyCellWhite{
+    background-color: white;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.emptyCellBlack{
+    background-color: rgb(71, 70, 71);
+    outline: none;
+    transition: all 0.2s ease;
+}
+.colorCellWhite{
+    background-color: white;
+}
+.colorCellBlack{
+    background-color:black;
+}
+.colorCellRainbow{
 
-.colorCell{
-    background-color: var(--cellColor);
-}
-.emptyCell{
-    background-color: var(--emptyCellColor);
 }
